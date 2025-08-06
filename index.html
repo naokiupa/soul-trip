@@ -14,23 +14,22 @@
         }
         
         .main-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            display: flex;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
             align-items: flex-start;
         }
         
         .schedule-container {
-            flex: 2;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 30px;
         }
         
-        .wishlist-container {
-            flex: 1;
+        .wishlist-container, .souvenirs-container {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -64,6 +63,7 @@
             padding: 10px;
             background-color: #f8f9fa;
             border-radius: 8px;
+            font-size: 1.05em;
         }
         
         .person-badge {
@@ -101,6 +101,7 @@
             gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1.1em;
         }
         
         .wishlist-item:hover {
@@ -247,10 +248,11 @@
         
         @media (max-width: 1200px) {
             .main-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
             
-            .wishlist-container {
+            .wishlist-container, .souvenirs-container {
                 position: static;
                 width: 100%;
             }
@@ -324,31 +326,73 @@
                 <div class="time-slot">
                     <div class="time">16:00</div>
                     <div class="activity transfer">
-                        <div class="activity-title">🚆 空港→ソウル駅移動</div>
+                        <div class="activity-title">🚆 空港→東大門移動</div>
                         <div class="activity-details">
-                            選択肢1: 空港鉄道A'REX（直通列車）- 約43分、9,500ウォン<br>
-                            選択肢2: 空港鉄道A'REX（一般列車）- 約59分、4,250ウォン<br>
-                            選択肢3: リムジンバス - 約60-90分、15,000ウォン
+                            選択肢1: 空港鉄道A'REX + 地下鉄 - 約60分<br>
+                            選択肢2: リムジンバス（東大門行き）- 約70-90分<br>
+                            選択肢3: タクシー - 約60分、約50,000ウォン
                         </div>
-                        <span class="duration">移動時間: 43分〜90分</span>
+                        <span class="duration">移動時間: 60分〜90分</span>
                     </div>
                 </div>
                 
                 <div class="time-slot">
                     <div class="time">17:00</div>
                     <div class="activity">
-                        <div class="activity-title">🏨 ソウル駅到着・ホテルチェックイン</div>
+                        <div class="activity-title">🏨 東大門ホテルチェックイン</div>
                         <div class="activity-details">
-                            ホテルへ移動・チェックイン<br>
-                            荷物を置いて一休み
+                            東大門エリアのホテルへチェックイン<br>
+                            荷物を置いて一休み・身支度
                         </div>
+                        <span class="duration">所要時間: 約30分</span>
                     </div>
                 </div>
                 
                 <div class="time-slot">
                     <div class="time">18:00</div>
-                    <div class="activity empty-slot">
-                        <span>+ 予定を追加（夕食など）</span>
+                    <div class="activity">
+                        <div class="activity-title">💉 美容クリニック</div>
+                        <div class="activity-details">
+                            東大門エリアの美容クリニックで施術<br>
+                            リジュラン・スキンボトックス・水光注射など<br>
+                            （移動時間込み）
+                        </div>
+                        <span class="duration">所要時間: 約2時間</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">20:00</div>
+                    <div class="activity">
+                        <div class="activity-title">🍽️ 東大門で夕食</div>
+                        <div class="activity-details">
+                            東大門エリアの韓国料理レストランで夕食<br>
+                            サムギョプサル・チゲ・韓国BBQなど
+                        </div>
+                        <span class="duration">所要時間: 約1時間30分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">21:30</div>
+                    <div class="activity">
+                        <div class="activity-title">🛍️ 東大門ナイトショッピング</div>
+                        <div class="activity-details">
+                            東大門デザインプラザ・ドゥータ・ミリオレなど<br>
+                            ファッション・アクセサリー・コスメショッピング
+                        </div>
+                        <span class="duration">所要時間: 約1時間30分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">23:00</div>
+                    <div class="activity">
+                        <div class="activity-title">🏨 ホテル帰宅</div>
+                        <div class="activity-details">
+                            東大門ホテルに帰宅・就寝準備<br>
+                            明日の観光に備えてゆっくり休憩
+                        </div>
                     </div>
                 </div>
             </div>
@@ -383,8 +427,73 @@
                 
                 <div class="time-slot">
                     <div class="time">18:00</div>
-                    <div class="activity empty-slot">
-                        <span>+ 予定を追加（夕食）</span>
+                    <div class="activity">
+                        <div class="activity-title">🍽️ 夕食</div>
+                        <div class="activity-details">
+                            汝矣島エリアで夕食<br>
+                            クルーズ前の腹ごしらえ
+                        </div>
+                        <span class="duration">所要時間: 約1時間30分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">21:15</div>
+                    <div class="activity">
+                        <div class="activity-title">🚇 汝矣ナル駅へ移動</div>
+                        <div class="activity-details">
+                            地下鉄5号線「汝矣ナル駅」3番出口<br>
+                            漢江公園へ降りてチケット売り場へ
+                        </div>
+                        <span class="duration">移動時間: 約30分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">22:00</div>
+                    <div class="activity">
+                        <div class="activity-title">🛥️ ソウル汝矣島Eランド漢江リバークルーズ</div>
+                        <div class="activity-details">
+                            <strong>✨ スターライトクルーズ（50分）</strong><br>
+                            🎵 ジャズ生演奏付き<br>
+                            🌙 盤浦大橋のムーンライトレインボー噴水ショー<br>
+                            💰 料金: ¥5,020（大人2名分）<br>
+                            📅 予約番号: FVG545664
+                        </div>
+                        <div class="flight-info">
+                            <strong>集合場所:</strong> E-land Cruiseチケットオフィス<br>
+                            <strong>住所:</strong> 86-1, Yeouido-dong, Yeongdeungpo-gu, Seoul<br>
+                            <strong>注意事項:</strong> 予約時間15分前到着・パスポート持参必須
+                        </div>
+                        <span class="duration">クルーズ時間: 50分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">23:00</div>
+                    <div class="activity">
+                        <div class="activity-title">🍢 弘大 夜の屋台通り</div>
+                        <div class="activity-details">
+                            <strong>弘大の若者の街で深夜屋台巡り</strong><br>
+                            🌭 ハットグ（チーズドッグ）・タコ焼き<br>
+                            🍳 チキン・ホットック・クレープ<br>
+                            🍺 치킨과 맥주（チキンとビール）文化体験<br>
+                            📍 地下鉄2号線「弘大入口駅」9番出口<br>
+                            💡 深夜2時頃まで営業・若者に人気のエリア
+                        </div>
+                        <span class="duration">滞在時間: 約1時間30分</span>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="time">00:30</div>
+                    <div class="activity">
+                        <div class="activity-title">🏨 ホテル帰宅</div>
+                        <div class="activity-details">
+                            弘大から東大門ホテルへ<br>
+                            地下鉄またはタクシーで移動
+                        </div>
+                        <span class="duration">移動時間: 約30分</span>
                     </div>
                 </div>
             </div>
@@ -517,7 +626,31 @@
                 <ul class="wishlist-items">
                     <li class="wishlist-item">
                         <div class="item-checkbox"></div>
-                        <span style="color: #95a5a6;">+ 追加する</span>
+                        <span>🥯 ロンドンベーグル</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🥐 塩パン</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🍢 屋台</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>💉 リジュラン（リズネ）</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>💉 スキンボトックス</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>💉 水光注射</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🍗 タッカンマリ</span>
                     </li>
                 </ul>
             </div>
@@ -551,6 +684,68 @@
                     <li class="wishlist-item">
                         <div class="item-checkbox"></div>
                         <span>🌃 夜景見る</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🕺 梨泰院のクラブ</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="souvenirs-container">
+            <h2>🎁 お土産リスト 🎁</h2>
+            
+            <div class="wishlist-section">
+                <div class="wishlist-header">
+                    <span class="person-badge naoki-badge">なおき</span>
+                    <span>買いたいお土産</span>
+                </div>
+                <ul class="wishlist-items">
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🧴 韓国コスメ（CNP・イニスフリー）</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🍯 蜂蜜バター・アーモンド</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🍪 Market O ブラウニー</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>☕ 韓国インスタントコーヒー</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="wishlist-section">
+                <div class="wishlist-header">
+                    <span class="person-badge mahiro-badge">まひろ</span>
+                    <span>買いたいお土産</span>
+                </div>
+                <ul class="wishlist-items">
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>💄 3CE・ROMAND コスメ</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🧴 メディヒール・ドクタージャルト</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🧸 LINE FRIENDS グッズ</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>🍫 チョコパイ・ハニーバター</span>
+                    </li>
+                    <li class="wishlist-item">
+                        <div class="item-checkbox"></div>
+                        <span>👕 韓国ファッション小物</span>
                     </li>
                 </ul>
             </div>
