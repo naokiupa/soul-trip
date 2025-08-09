@@ -61,6 +61,43 @@ export const Schedule: React.FC<ScheduleProps> = ({ schedule }) => {
                         {formatText(activity.flightInfo)}
                       </div>
                     )}
+                    {activity.imageUrl && (
+                      <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                        <img 
+                          src={activity.imageUrl} 
+                          alt={activity.activity}
+                          style={{ 
+                            maxWidth: '100%',
+                            height: 'auto',
+                            borderRadius: '8px',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                          }}
+                        />
+                      </div>
+                    )}
+                    {activity.flightLink && (
+                      <a 
+                        href={activity.flightLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ 
+                          display: 'inline-block',
+                          marginTop: '8px',
+                          padding: '6px 12px',
+                          backgroundColor: (activity.activity.includes('ホテル') || activity.activity.includes('夜景') || activity.activity.includes('クルーズ') || activity.activity.includes('ショッピング')) ? '#dc3545' : activity.activityType === 'immigration' ? '#28a745' : '#007bff',
+                          color: 'white',
+                          borderRadius: '4px',
+                          textDecoration: 'none',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          transition: 'background-color 0.2s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = (activity.activity.includes('ホテル') || activity.activity.includes('夜景') || activity.activity.includes('クルーズ') || activity.activity.includes('ショッピング')) ? '#c82333' : activity.activityType === 'immigration' ? '#218838' : '#0056b3'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = (activity.activity.includes('ホテル') || activity.activity.includes('夜景') || activity.activity.includes('クルーズ') || activity.activity.includes('ショッピング')) ? '#dc3545' : activity.activityType === 'immigration' ? '#28a745' : '#007bff'}
+                      >
+                        {(activity.activity.includes('夜景') || activity.activity.includes('ホテル') || activity.activity.includes('クルーズ') || activity.activity.includes('ショッピング')) ? '📍 地図を開く' : activity.activityType === 'immigration' ? '電子申請 →' : 'フライト情報を確認 →'}
+                      </a>
+                    )}
                     {activity.duration && (
                       <span className={styles.duration}>{activity.duration}</span>
                     )}

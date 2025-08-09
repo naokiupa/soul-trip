@@ -37,6 +37,8 @@ export interface TravelActivity {
   details?: string;
   duration?: string;
   flightInfo?: string;
+  flightLink?: string;
+  imageUrl?: string;
   activityType?: 'flight' | 'immigration' | 'transfer';
 }
 
